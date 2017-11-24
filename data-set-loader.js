@@ -29,6 +29,7 @@ function getGraphDataSets() {
             .jsonUrl('eniac.json');
     };
     loadEniac.description = "<em>Eniac</em> data";
+    loadEniac.uid = "eniac";
 
     //
 
@@ -45,6 +46,7 @@ function getGraphDataSets() {
             .jsonUrl('tty.json');
     };
     loadTTY.description = "<em>Teletype</em> data";
+    loadTTY.uid = "tty";
 
     //
 
@@ -61,6 +63,7 @@ function getGraphDataSets() {
             .jsonUrl('vdu.json');
     };
     loadVDU.description = "<em>Video Display Unit</em> data";
+    loadVDU.uid = "vdu";
 
     //
 
@@ -77,6 +80,7 @@ function getGraphDataSets() {
             .jsonUrl('mainframe-disconnect.json');
     };
     loadMainFrameDisconnect.description = "<em>MainFrame Disconnected</em> data";
+    loadMainFrameDisconnect.uid = "mainframedisconnected";
 
     //
 
@@ -93,6 +97,7 @@ function getGraphDataSets() {
             .jsonUrl('mainframe-net.json');
     };
     loadMainFrameNet.description = "<em>MainFrame net</em> data";
+    loadMainFrameNet.uid = "mainframe";
 
     //
 
@@ -109,6 +114,7 @@ function getGraphDataSets() {
             .jsonUrl('pc.json');
     };
     loadPC.description = "<em>PC</em> data";
+    loadPC.uid = "pc";
 
     //
 
@@ -125,6 +131,7 @@ function getGraphDataSets() {
             .jsonUrl('pcs.json');
     };
     loadPCS.description = "<em>PCs</em> data";
+    loadPCS.uid = "pcs";
 
     //
 
@@ -141,6 +148,7 @@ function getGraphDataSets() {
             .jsonUrl('pcs-net.json');
     };
     loadPCSNet.description = "<em>Network of PCs</em> data";
+    loadPCSNet.uid = "pcsnet";
 
     //
 
@@ -157,6 +165,7 @@ function getGraphDataSets() {
             .jsonUrl('chris.json');
     };
     loadCHRIS.description = "<em>CHRIS</em> data";
+    loadCHRIS.uid = "chris";
 
     //
 
@@ -173,6 +182,7 @@ function getGraphDataSets() {
             .jsonUrl('miserables.json');
     };
     loadMiserables.description = "<em>Miserables</em> data";
+    loadMiserables.uid = "miserables";
 
     //
 
@@ -190,6 +200,7 @@ function getGraphDataSets() {
         });
     };
     loadBlocks.description = "<em>Blocks</em> data (<a href='https://bl.ocks.org/mbostock/afecf1ce04644ad9036ca146d2084895'>afecf1ce04644ad9036ca146d2084895</a>)";
+    loadBlocks.uid = "blocks";
 
     //
 

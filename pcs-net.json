@@ -1,0 +1,36 @@
+{
+  "nodes": [
+    {"id": "pc1",    "group": 1},
+    {"id": "human1", "group": 1},
+    {"id": "pc2",    "group": 2},
+    {"id": "human2", "group": 2},    
+    {"id": "pc3",    "group": 3},
+    {"id": "human3", "group": 3},
+    {"id": "pc4",    "group": 4},
+    {"id": "human4", "group": 4},    
+    {"id": "pc5",    "group": 5},
+    {"id": "human5", "group": 5},    
+    {"id": "pc6",    "group": 6},
+    {"id": "human6", "group": 6},    
+    {"id": "pc7",    "group": 7},
+    {"id": "human7", "group": 7},
+    {"id": "server1", "group": 8}
+    ],
+  "links": [
+    {"source": "pc1",  "target": "human1", "value": 10},
+    {"source": "pc2",  "target": "human2", "value": 10},
+    {"source": "pc3",  "target": "human3", "value": 10},
+    {"source": "pc4",  "target": "human4", "value": 10},
+    {"source": "pc5",  "target": "human5", "value": 10},
+    {"source": "pc6",  "target": "human6", "value": 10},
+    {"source": "pc7",  "target": "human7", "value": 10},
+    {"source": "pc1",  "target": "server1", "value": 1},
+    {"source": "pc2",  "target": "server1", "value": 1},
+    {"source": "pc3",  "target": "server1", "value": 1},
+    {"source": "pc4",  "target": "server1", "value": 1},
+    {"source": "pc5",  "target": "server1", "value": 1},
+    {"source": "pc6",  "target": "server1", "value": 1},
+    {"source": "pc7",  "target": "server1", "value": 1}
+  ]
+}
+

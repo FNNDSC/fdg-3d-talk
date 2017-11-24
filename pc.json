@@ -1,0 +1,10 @@
+{
+  "nodes": [
+    {"id": "pc1",    "group": 1},
+    {"id": "human1", "group": 2}
+  ],
+  "links": [
+    {"source": "pc1",  "target": "human1", "value": 10}
+  ]
+}
+

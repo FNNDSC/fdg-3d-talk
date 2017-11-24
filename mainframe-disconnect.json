@@ -1,0 +1,46 @@
+{
+  "nodes": [
+    {"id": "mainframe1", "group": 1},
+    {"id": "tty1.1", "group": 2},
+    {"id": "tty1.2", "group": 2},
+    {"id": "tty1.3", "group": 2},
+    {"id": "tty1.4", "group": 2},
+    {"id": "tty1.5", "group": 2},
+    {"id": "tty1.6", "group": 2},
+    {"id": "mainframe2", "group": 3},
+    {"id": "tty2.1", "group": 4},
+    {"id": "tty2.2", "group": 4},
+    {"id": "tty2.3", "group": 4},
+    {"id": "tty2.4", "group": 4},
+    {"id": "tty2.5", "group": 4},
+    {"id": "tty2.6", "group": 4},
+    {"id": "mainframe3", "group": 5},
+    {"id": "tty3.1", "group": 6},
+    {"id": "tty3.2", "group": 6},
+    {"id": "tty3.3", "group": 6},
+    {"id": "tty3.4", "group": 6},
+    {"id": "tty3.5", "group": 6},
+    {"id": "tty3.6", "group": 6}
+  ],
+  "links": [
+    {"source": "tty1.1", "target": "mainframe1", "value": 10},
+    {"source": "tty1.2", "target": "mainframe1", "value": 10},
+    {"source": "tty1.3", "target": "mainframe1", "value": 10},
+    {"source": "tty1.4", "target": "mainframe1", "value": 10},
+    {"source": "tty1.5", "target": "mainframe1", "value": 10},
+    {"source": "tty1.6", "target": "mainframe1", "value": 10},
+    {"source": "tty2.1", "target": "mainframe2", "value": 10},
+    {"source": "tty2.2", "target": "mainframe2", "value": 10},
+    {"source": "tty2.3", "target": "mainframe2", "value": 10},
+    {"source": "tty2.4", "target": "mainframe2", "value": 10},
+    {"source": "tty2.5", "target": "mainframe2", "value": 10},
+    {"source": "tty2.6", "target": "mainframe2", "value": 10},
+    {"source": "tty3.1", "target": "mainframe3", "value": 10},
+    {"source": "tty3.2", "target": "mainframe3", "value": 10},
+    {"source": "tty3.3", "target": "mainframe3", "value": 10},
+    {"source": "tty3.4", "target": "mainframe3", "value": 10},
+    {"source": "tty3.5", "target": "mainframe3", "value": 10},
+    {"source": "tty3.6", "target": "mainframe3", "value": 10}
+  ]
+}
+

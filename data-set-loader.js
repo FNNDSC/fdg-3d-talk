@@ -164,8 +164,8 @@ function getGraphDataSets() {
             .forceEngine('ngraph')
             .jsonUrl('pcs-net.json');
     };
-    loadPCSNet.description = "<em>Network of PCs</em> data";
-    loadPCSNet.uid = "pcsnet";
+    loadPCSSNet.description = "<em>Network of PCs</em> data";
+    loadPCSSNet.uid = "pcsnet";
 
     //
 

@@ -147,8 +147,8 @@ function getGraphDataSets() {
             .forceEngine('ngraph')
             .jsonUrl('pcss.json');
     };
-    loadPCS.description = "<em>Many PCs</em> data";
-    loadPCS.uid = "pcss";
+    loadPCSS.description = "<em>Many PCs</em> data";
+    loadPCSS.uid = "pcss";
 
     //
 
@@ -164,8 +164,25 @@ function getGraphDataSets() {
             .forceEngine('ngraph')
             .jsonUrl('pcs-net.json');
     };
-    loadPCSSNet.description = "<em>Network of PCs</em> data";
-    loadPCSSNet.uid = "pcsnet";
+    loadPCSNet.description = "<em>Network of PCs</em> data";
+    loadPCSNet.uid = "pcsnet";
+
+    //
+
+    const loadPCSSNet = function(Graph) {
+        Graph
+            .onNodeClick(onNode)
+            .valField(1)
+            .nodeResolution(40)
+            .nodeRelSize(10)
+            .cooldownTicks(Infinity)
+            .nameField('id')
+            .autoColorBy('group')
+            .forceEngine('ngraph')
+            .jsonUrl('pcss-net.json');
+    };
+    loadPCSSNet.description = "<em>Network of many PCs</em> data";
+    loadPCSSNet.uid = "pcssnet";
 
     //
 
@@ -298,6 +315,7 @@ function getGraphDataSets() {
             loadPCS,
             loadPCSS,
             loadPCSNet,
+            loadPCSSNet,
             loadCHRIS, 
             loadMiserables, 
             loadBlocks, 

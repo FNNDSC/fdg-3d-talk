@@ -303,6 +303,7 @@ function getGraphDataSets() {
             .graphData({ nodes: nodes, links: links });
     };
     tunnel.description = "fabric data for a cylindrical tunnel shape";
+    tunnel.uid = "tunnel";
 
     //
 

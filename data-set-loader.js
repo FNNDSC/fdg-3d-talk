@@ -135,6 +135,23 @@ function getGraphDataSets() {
 
     //
 
+    const loadPCSS = function(Graph) {
+        Graph
+            .onNodeClick(onNode)
+            .valField(1)
+            .nodeResolution(40)
+            .nodeRelSize(10)
+            .cooldownTicks(Infinity)
+            .nameField('id')
+            .autoColorBy('group')
+            .forceEngine('ngraph')
+            .jsonUrl('pcss.json');
+    };
+    loadPCS.description = "<em>Many PCs</em> data";
+    loadPCS.uid = "pcss";
+
+    //
+
     const loadPCSNet = function(Graph) {
         Graph
             .onNodeClick(onNode)

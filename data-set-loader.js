@@ -186,6 +186,57 @@ function getGraphDataSets() {
 
     //
 
+    const loadCloud = function(Graph) {
+        Graph
+            .onNodeClick(onNode)
+            .valField(1)
+            .nodeResolution(40)
+            .nodeRelSize(10)
+            .cooldownTicks(Infinity)
+            .nameField('id')
+            .autoColorBy('group')
+            .forceEngine('ngraph')
+            .jsonUrl('cloud.json');
+    };
+    loadCloud.description = "<em>Cloud topology</em> data";
+    loadCloud.uid = "cloud";
+
+    //
+
+    const loadEdge = function(Graph) {
+        Graph
+            .onNodeClick(onNode)
+            .valField(1)
+            .nodeResolution(40)
+            .nodeRelSize(10)
+            .cooldownTicks(Infinity)
+            .nameField('id')
+            .autoColorBy('group')
+            .forceEngine('ngraph')
+            .jsonUrl('edge.json');
+    };
+    loadEdge.description = "<em>Edge computing</em> data";
+    loadEdge.uid = "edge";
+
+    //
+
+    const loadFog = function(Graph) {
+        Graph
+            .onNodeClick(onNode)
+            .valField(1)
+            .nodeResolution(40)
+            .nodeRelSize(10)
+            .cooldownTicks(Infinity)
+            .nameField('id')
+            .autoColorBy('group')
+            .forceEngine('ngraph')
+            .jsonUrl('fog.json');
+    };
+    loadFog.description = "<em>Fog computing</em> data";
+    loadFog.uid = "fog";
+
+    //
+
     const loadCHRIS = function(Graph) {
         Graph
             .onNodeClick(onNode)
@@ -317,6 +368,9 @@ function getGraphDataSets() {
             loadPCSS,
             loadPCSNet,
             loadPCSSNet,
+            loadCloud,
+            loadEdge,
+            loadFog,
             loadCHRIS, 
             loadMiserables, 
             loadBlocks, 

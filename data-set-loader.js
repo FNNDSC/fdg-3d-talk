@@ -33,6 +33,23 @@ function getGraphDataSets() {
 
     //
 
+    const loadChain= function(Graph) {
+        Graph
+            .onNodeClick(onNode)
+            .valField(1)
+            .nodeResolution(40)
+            .nodeRelSize(10)
+            .cooldownTicks(Infinity)
+            .nameField('id')
+            .autoColorBy('group')
+            .forceEngine('ngraph')
+            .jsonUrl('chain.json');
+    };
+    loadChain.description = "<em>Chain</em> data";
+    loadChain.uid = "chain";
+
+    //
+
     const loadTTY = function(Graph) {
         Graph
             .onNodeClick(onNode)
@@ -359,6 +376,7 @@ function getGraphDataSets() {
     //
 
     return [loadEniac, 
+	    loadChain,
             loadTTY, 
             loadVDU, 
             loadMainFrameDisconnect,

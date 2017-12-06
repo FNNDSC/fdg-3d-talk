@@ -14,386 +14,162 @@ function onNode(state) {
     state.__sphere.scale.z *= scaleFactor;
 }
 
+function graphSet_jsonFileLoad(astr_jsonFileName) {
+    // Simply return a graph set read from a json file
+
+    return (function(Graph) {
+        Graph
+            .onNodeClick(onNode)
+            .valField(1)
+            .nodeResolution(40)
+            .nodeRelSize(10)
+            .cooldownTicks(Infinity)
+            .nameField('id')
+            .autoColorBy('group')
+            .forceEngine('ngraph')
+            .jsonUrl(astr_jsonFileName);
+    })
+}
+
 function getGraphDataSets() {
 
-    const loadEniac = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('eniac.json');
-    };
-    loadEniac.description = "<em>Eniac</em> data";
-    loadEniac.uid = "eniac";
+    let l_graph = [
+        'eniac',
+        'chain',
+        'tty',
+        'vdu',
+        'mainframe-disconnect',
+        'mainframe-net',
+        'pc',
+        'pcs',
+        'pcss',
+        'pcs-net',
+        'pcss-net',
+        'cloud',
+        'edge',
+        'fog',
+        'chris',
+        'miserables'
+    ];
 
-    //
+    let l_graphFunction = [];
 
-    const loadChain= function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('chain.json');
-    };
-    loadChain.description = "<em>Chain</em> data";
-    loadChain.uid = "chain";
+    for (i in l_graph) {
+        console.log(i);
+        const funcObj = graphSet_jsonFileLoad(l_graph[i] + '.json');
+        funcObj.description = "<em>" + l_graph[i] + "</em> topology";
+        funcObj.uid = l_graph[i];
+        l_graphFunction.push(funcObj);
+    }
 
-    //
-
-    const loadTTY = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('tty.json');
-    };
-    loadTTY.description = "<em>Teletype</em> data";
-    loadTTY.uid = "tty";
-
-    //
-
-    const loadVDU = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('vdu.json');
-    };
-    loadVDU.description = "<em>Video Display Unit</em> data";
-    loadVDU.uid = "vdu";
-
-    //
-
-    const loadMainFrameDisconnect = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('mainframe-disconnect.json');
-    };
-    loadMainFrameDisconnect.description = "<em>MainFrame Disconnected</em> data";
-    loadMainFrameDisconnect.uid = "mainframedisconnected";
-
-    //
-
-    const loadMainFrameNet = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('mainframe-net.json');
-    };
-    loadMainFrameNet.description = "<em>MainFrame net</em> data";
-    loadMainFrameNet.uid = "mainframe";
-
-    //
-
-    const loadPC = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('pc.json');
-    };
-    loadPC.description = "<em>PC</em> data";
-    loadPC.uid = "pc";
-
-    //
-
-    const loadPCS = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('pcs.json');
-    };
-    loadPCS.description = "<em>PCs</em> data";
-    loadPCS.uid = "pcs";
-
-    //
-
-    const loadPCSS = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('pcss.json');
-    };
-    loadPCSS.description = "<em>Many PCs</em> data";
-    loadPCSS.uid = "pcss";
-
-    //
-
-    const loadPCSNet = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('pcs-net.json');
-    };
-    loadPCSNet.description = "<em>Network of PCs</em> data";
-    loadPCSNet.uid = "pcsnet";
-
-    //
-
-    const loadPCSSNet = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('pcss-net.json');
-    };
-    loadPCSSNet.description = "<em>Network of many PCs</em> data";
-    loadPCSSNet.uid = "pcssnet";
-
-    //
-
-    const loadCloud = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('cloud.json');
-    };
-    loadCloud.description = "<em>Cloud topology</em> data";
-    loadCloud.uid = "cloud";
-
-    //
-
-    const loadEdge = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('edge.json');
-    };
-    loadEdge.description = "<em>Edge computing</em> data";
-    loadEdge.uid = "edge";
-
-    //
-
-    const loadFog = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('fog.json');
-    };
-    loadFog.description = "<em>Fog computing</em> data";
-    loadFog.uid = "fog";
-
-    //
-
-    const loadCHRIS = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('chris.json');
-    };
-    loadCHRIS.description = "<em>CHRIS</em> data";
-    loadCHRIS.uid = "chris";
-
-    //
-
-    const loadMiserables = function(Graph) {
-        Graph
-            .onNodeClick(onNode)
-            .valField(1)
-            .nodeResolution(40)
-            .nodeRelSize(10)
-            .cooldownTicks(Infinity)
-            .nameField('id')
-            .autoColorBy('group')
-            .forceEngine('ngraph')
-            .jsonUrl('miserables.json');
-    };
-    loadMiserables.description = "<em>Miserables</em> data";
-    loadMiserables.uid = "miserables";
-
-    //
-
-
-    const loadBlocks = function(Graph) {
-        qwest.get('blocks.json').then((_, data) => {
-            data.nodes.forEach(node => { node.name = `${node.user?node.user+': ':''}${node.description || node.id}` });
-
-            Graph
-                .cooldownTicks(300)
-                .cooldownTime(20000)
-                .autoColorBy('user')
-                .forceEngine('ngraph')
-                .graphData(data);
-        });
-    };
-    loadBlocks.description = "<em>Blocks</em> data (<a href='https://bl.ocks.org/mbostock/afecf1ce04644ad9036ca146d2084895'>afecf1ce04644ad9036ca146d2084895</a>)";
-    loadBlocks.uid = "blocks";
-
-    //
-
-    // const loadD3Dependencies = function(Graph) {
-    //     qwest.get('d3.csv').then((_, csvData) => {
-    //         const { data: [, ...data] } = Papa.parse(csvData); // Parse csv
-    //         data.pop(); // Remove last empty row
-
-    //         const nodes = [], links = [];
-    //         data.forEach(([size, path]) => {
-    //             const levels = path.split('/'),
-    //                 module = levels.length > 1 ? levels[1] : null,
-    //                 leaf = levels.pop(),
-    //                 parent = levels.join('/');
-
-    //             nodes.push({
-    //                 path,
-    //                 leaf,
-    //                 module,
-    //                 size: +size || 1
-    //             });
-
-    //             if (parent) {
-    //                 links.push({ source: parent, target: path});
-    //             }
-    //         });
+    // const loadBlocks = function(Graph) {
+    //     qwest.get('blocks.json').then((_, data) => {
+    //         data.nodes.forEach(node => { node.name = `${node.user?node.user+': ':''}${node.description || node.id}` });
 
     //         Graph
     //             .cooldownTicks(300)
-    //             .nodeRelSize(0.5)
-    //             .idField('path')
-    //             .valField('size')
-    //             .nameField('path')
-    //             .autoColorBy('module')
+    //             .cooldownTime(20000)
+    //             .autoColorBy('user')
     //             .forceEngine('ngraph')
-    //             .graphData({ nodes: nodes, links: links });
+    //             .graphData(data);
     //     });
     // };
-    // loadD3Dependencies.description = "<em>D3 dependencies</em> data (<a href='https://bl.ocks.org/mbostock/9a8124ccde3a4e9625bc413b48f14b30'>9a8124ccde3a4e9625bc413b48f14b30</a>)";
+    // loadBlocks.description = "<em>Blocks</em> data (<a href='https://bl.ocks.org/mbostock/afecf1ce04644ad9036ca146d2084895'>afecf1ce04644ad9036ca146d2084895</a>)";
+    // loadBlocks.uid = "blocks";
 
-    const tunnel = function(Graph) {
+    // //
 
-        const perimeter = 12, length = 30;
+    // // const loadD3Dependencies = function(Graph) {
+    // //     qwest.get('d3.csv').then((_, csvData) => {
+    // //         const { data: [, ...data] } = Papa.parse(csvData); // Parse csv
+    // //         data.pop(); // Remove last empty row
 
-        const getId = (col, row) => `${col},${row}`;
+    // //         const nodes = [], links = [];
+    // //         data.forEach(([size, path]) => {
+    // //             const levels = path.split('/'),
+    // //                 module = levels.length > 1 ? levels[1] : null,
+    // //                 leaf = levels.pop(),
+    // //                 parent = levels.join('/');
 
-        let nodes = [], links = [];
-        for (let colIdx=0; colIdx<perimeter; colIdx++) {
-            for (let rowIdx=0; rowIdx<length; rowIdx++) {
-                const id = getId(colIdx, rowIdx);
-                nodes.push({id});
+    // //             nodes.push({
+    // //                 path,
+    // //                 leaf,
+    // //                 module,
+    // //                 size: +size || 1
+    // //             });
 
-                // Link vertically
-                if (rowIdx>0) {
-                    links.push({ source: getId(colIdx, rowIdx-1), target: id });
-                }
+    // //             if (parent) {
+    // //                 links.push({ source: parent, target: path});
+    // //             }
+    // //         });
 
-                // Link horizontally
-                links.push({ source: getId((colIdx || perimeter) - 1, rowIdx), target: id });
-            }
-        }
+    // //         Graph
+    // //             .cooldownTicks(300)
+    // //             .nodeRelSize(0.5)
+    // //             .idField('path')
+    // //             .valField('size')
+    // //             .nameField('path')
+    // //             .autoColorBy('module')
+    // //             .forceEngine('ngraph')
+    // //             .graphData({ nodes: nodes, links: links });
+    // //     });
+    // // };
+    // // loadD3Dependencies.description = "<em>D3 dependencies</em> data (<a href='https://bl.ocks.org/mbostock/9a8124ccde3a4e9625bc413b48f14b30'>9a8124ccde3a4e9625bc413b48f14b30</a>)";
 
-        Graph
-            .cooldownTicks(300)
-            .forceEngine('ngraph')
-            .graphData({ nodes: nodes, links: links });
-    };
-    tunnel.description = "fabric data for a cylindrical tunnel shape";
-    tunnel.uid = "tunnel";
+    // const tunnel = function(Graph) {
 
-    //
+    //     const perimeter = 12,
+    //         length = 30;
 
-    return [loadEniac, 
-	    loadChain,
-            loadTTY, 
-            loadVDU, 
-            loadMainFrameDisconnect,
-            loadMainFrameNet,
-            loadPC,
-            loadPCS,
-            loadPCSS,
-            loadPCSNet,
-            loadPCSSNet,
-            loadCloud,
-            loadEdge,
-            loadFog,
-            loadCHRIS, 
-            loadMiserables, 
-            loadBlocks, 
-            // loadD3Dependencies, 
-            tunnel];
+    //     const getId = (col, row) => `${col},${row}`;
+
+    //     let nodes = [],
+    //         links = [];
+    //     for (let colIdx = 0; colIdx < perimeter; colIdx++) {
+    //         for (let rowIdx = 0; rowIdx < length; rowIdx++) {
+    //             const id = getId(colIdx, rowIdx);
+    //             nodes.push({ id });
+
+    //             // Link vertically
+    //             if (rowIdx > 0) {
+    //                 links.push({ source: getId(colIdx, rowIdx - 1), target: id });
+    //             }
+
+    //             // Link horizontally
+    //             links.push({ source: getId((colIdx || perimeter) - 1, rowIdx), target: id });
+    //         }
+    //     }
+
+    //     Graph
+    //         .cooldownTicks(300)
+    //         .forceEngine('ngraph')
+    //         .graphData({ nodes: nodes, links: links });
+    // };
+    // tunnel.description = "fabric data for a cylindrical tunnel shape";
+    // tunnel.uid = "tunnel";
+
+    // //
+
+    // return [loadEniac,
+    //     loadChain,
+    //     loadTTY,
+    //     loadVDU,
+    //     loadMainFrameDisconnect,
+    //     loadMainFrameNet,
+    //     loadPC,
+    //     loadPCS,
+    //     loadPCSS,
+    //     loadPCSNet,
+    //     loadPCSSNet,
+    //     loadCloud,
+    //     loadEdge,
+    //     loadFog,
+    //     loadCHRIS,
+    //     loadMiserables,
+    //     loadBlocks,
+    //     // loadD3Dependencies, 
+    //     tunnel
+    // ];
+
+    return l_graphFunction;
 }
-
-
